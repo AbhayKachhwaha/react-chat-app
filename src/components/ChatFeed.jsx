@@ -10,7 +10,7 @@ const ChatFeed = (props) => {
 
   const renderReadRecipts = (message, isMyMessage) => {
     return chat.people.map((person, index) => {
-      person.last_read === message.id && (
+      return person.last_read === message.id && (
         <div
           key={`read_${index}`}
           className="read-receipt"
@@ -54,7 +54,7 @@ const ChatFeed = (props) => {
     });
   };
 
-  if (!chat) return "Loading...";
+  if (!chat) return (<div>No chat room found</div>);
 
   return (
     <div className="chat-feed">
